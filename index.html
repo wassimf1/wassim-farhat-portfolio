@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f8fa">
+  <meta name="description" content="Wassim Farhat — Electrical and Automation Engineering student focused on industrial automation, embedded systems, electrical installations and technical problem-solving.">
+  <title>Wassim Farhat | Electrical & Automation Engineering</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff; --surface: #ffffff; --ink: #14253d; --muted: #5d6b7d;
+      --line: #dce3eb; --blue: #1f477f; --blue-dark: #17365f;
+      --blue-soft: #f0f4f8; --green: #23775a; --radius: 10px;
+      --shadow: 0 6px 18px rgba(20,37,61,.045); --max: 1080px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 400 16px/1.7 "DM Sans", sans-serif; }
+    a { color: inherit; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #8baeff; outline-offset: 3px; }
+    .container { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    .nav-wrap { position: sticky; top: 0; z-index: 10; background: rgba(255,255,255,.96); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(226,231,237,.9); }
+    nav { min-height: 72px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font: 800 15px/1.2 Manrope, sans-serif; letter-spacing: -.02em; }
+    .brand-mark { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 8px; background: var(--ink); color: #fff; font-size: 12px; letter-spacing: .04em; }
+    .nav-links { display: flex; gap: 25px; align-items: center; }
+    .nav-links a { color: var(--muted); font-size: 13px; font-weight: 600; text-decoration: none; transition: color .2s; }
+    .nav-links a:hover { color: var(--blue); }
+    .hero { padding: 88px 0 76px; }
+    .hero-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(250px, .6fr); gap: 54px; align-items: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; color: var(--blue); text-transform: uppercase; letter-spacing: .12em; font-size: 11px; font-weight: 700; }
+    .eyebrow:before { content: ""; width: 24px; height: 2px; background: var(--blue); }
+    h1,h2,h3,p { margin-top: 0; }
+    h1 { max-width: 750px; margin: 18px 0 18px; font: 800 clamp(40px, 5.5vw, 64px)/1.08 Manrope, sans-serif; letter-spacing: -.065em; }
+    h1 span { color: var(--blue); }
+    .hero-lead { max-width: 650px; color: #435267; font-size: clamp(17px, 2vw, 20px); line-height: 1.65; }
+    .hero-copy { max-width: 650px; color: var(--muted); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 46px; padding: 0 18px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface); text-decoration: none; font-size: 13px; font-weight: 700; transition: border-color .15s; }
+    .btn:hover { border-color: #aebdce; }
+    .btn-primary { color: #fff; background: var(--blue); border-color: var(--blue); }
+    .btn-primary:hover { background: var(--blue-dark); border-color: var(--blue-dark); }
+    .profile-card { padding: 25px; background: #fff; border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 4px 14px rgba(20,37,61,.04); }
+    .profile-top { display: flex; align-items: center; gap: 13px; margin-bottom: 24px; }
+    .avatar { width: 50px; height: 50px; display: grid; place-items: center; border-radius: 9px; color: var(--blue); background: var(--blue-soft); font: 800 15px Manrope,sans-serif; }
+    .profile-top strong { display: block; font: 700 14px Manrope,sans-serif; }
+    .profile-top span { display: block; color: var(--muted); font-size: 12px; }
+    .status { display: inline-flex; align-items: center; gap: 8px; color: var(--green); font-size: 12px; font-weight: 700; }
+    .status:before { content:""; width:7px;height:7px;border-radius:50%;background:#35a879;box-shadow:0 0 0 4px #e0f5eb; }
+    .profile-card h3 { margin: 18px 0 12px; font: 700 13px Manrope,sans-serif; }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 7px; }
+    .pill { display: inline-flex; padding: 6px 9px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,.8); color: #4c5c70; font-size: 11px; font-weight: 600; }
+    .quick-info { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 42px; }
+    .quick-info div { padding-top: 17px; border-top: 1px solid var(--line); }
+    .quick-info strong { display: block; font: 800 21px Manrope,sans-serif; letter-spacing: -.04em; }
+    .quick-info span { color: var(--muted); font-size: 12px; }
+    section { padding: 78px 0; border-top: 1px solid var(--line); }
+    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 32px; }
+    .section-head h2 { margin: 8px 0 0; font: 800 clamp(28px,4vw,39px)/1.15 Manrope,sans-serif; letter-spacing: -.045em; }
+    .section-head p { max-width: 500px; margin: 0; color: var(--muted); font-size: 14px; }
+    .timeline { display: grid; gap: 14px; }
+    .experience { display: grid; grid-template-columns: 175px 1fr; gap: 25px; padding: 25px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    .date { color: var(--muted); font-size: 12px; font-weight: 700; }
+    .date span { display: block; margin-top: 4px; font-weight: 500; }
+    .experience h3,.project h3 { margin: 0 0 4px; font: 750 18px/1.35 Manrope,sans-serif; letter-spacing: -.025em; }
+    .org { margin-bottom: 12px; color: var(--blue); font-size: 13px; font-weight: 700; }
+    .experience ul { margin: 0; padding-left: 18px; color: #4d5b6c; font-size: 14px; }
+    li { margin: 5px 0; }
+    .grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 18px; }
+    .project { display: flex; flex-direction: column; min-height: 100%; padding: 25px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 5px 20px rgba(23,35,51,.025); transition: border-color .15s; }
+    .project:hover { border-color: #b8c6d8; box-shadow: 0 4px 14px rgba(20,37,61,.04); }
+    .project-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 14px; margin-bottom: 14px; }
+    .project-icon { display: grid; place-items: center; flex: 0 0 43px; height: 43px; border-radius: 8px; color: var(--blue); background: var(--blue-soft); font-size: 19px; }
+    .project-type { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .project p { margin: 10px 0 0; color: #566578; font-size: 14px; }
+    .project .skill-pills { margin-top: 17px; }
+    .project-links { display: flex; flex-wrap: wrap; gap: 9px; margin-top: auto; padding-top: 22px; }
+    .small-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 11px; border: 1px solid var(--line); border-radius: 8px; color: var(--blue); background: #fff; font-size: 12px; font-weight: 700; text-decoration: none; }
+    .small-btn:hover { background: var(--blue-soft); border-color: #c8d8ff; }
+    .muted-note { color: var(--muted); font-size: 12px; }
+    .resources { display: none; }
+    .resources.has-items { display: block; }
+    .resource-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+    .resource { display: flex; gap: 14px; align-items: flex-start; padding: 18px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+    .resource .project-icon { flex-shrink: 0; }
+    .resource h3 { margin: 0 0 4px; font: 700 14px Manrope,sans-serif; }
+    .resource p { margin: 0 0 12px; color: var(--muted); font-size: 12px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 14px; }
+    .skill-box { padding: 21px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+    .skill-box h3 { margin-bottom: 9px; font: 700 14px Manrope,sans-serif; }
+    .skill-box p { margin: 0; color: var(--muted); font-size: 13px; }
+    .education-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .info-panel { padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); }
+    .info-panel h3 { margin-bottom: 17px; font: 750 17px Manrope,sans-serif; }
+    .info-item { padding: 14px 0; border-top: 1px solid var(--line); }
+    .info-item:first-of-type { border-top: 0; padding-top: 0; }
+    .info-item strong { display: block; font-size: 14px; }
+    .info-item span { color: var(--muted); font-size: 12px; }
+    .contact-panel { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 34px; border-radius: 12px; background: var(--ink); color: white; }
+    .contact-panel h2 { margin-bottom: 8px; font: 800 clamp(25px,4vw,36px)/1.2 Manrope,sans-serif; letter-spacing: -.04em; }
+    .contact-panel p { margin: 0; color: #c5d0dd; font-size: 14px; }
+    .contact-panel .btn { flex-shrink: 0; color: var(--ink); background: white; border-color: white; }
+    footer { padding: 28px 0; color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+    @media(max-width:780px) {
+      .hero { padding: 60px 0 48px; } .hero-grid { grid-template-columns: 1fr; gap: 32px; }
+      .profile-card { max-width: 560px; } .experience { grid-template-columns: 1fr; gap: 10px; }
+      .skills-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } .nav-links { gap: 13px; }
+      .nav-links a { font-size: 12px; }
+    }
+    @media(max-width:560px) {
+      .container { width: min(var(--max), calc(100% - 28px)); }
+      nav { min-height: 62px; align-items: flex-start; padding: 13px 0; flex-direction: column; gap: 10px; }
+      .nav-links { width: 100%; overflow-x: auto; padding-bottom: 2px; }
+      .nav-links a { white-space: nowrap; }
+      h1 { font-size: 43px; } .quick-info { gap: 9px; } .quick-info strong { font-size: 17px; }
+      section { padding: 56px 0; } .section-head { align-items: flex-start; flex-direction: column; gap: 10px; }
+      .grid,.resource-grid,.education-grid,.skills-grid { grid-template-columns: 1fr; }
+      .project { padding: 21px; } .contact-panel { align-items: flex-start; flex-direction: column; padding: 25px; }
+    }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; } }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <nav class="container" aria-label="Main navigation">
+      <a class="brand" href="#home"><span class="brand-mark">WF</span><span>Wassim Farhat</span></a>
+      <div class="nav-links">
+        <a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#resources">Reports & demos</a><a href="#skills">Skills</a><a href="#education">Education</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+
+  <main>
+    <header class="hero" id="home">
+      <div class="container">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Engineering portfolio</div>
+            <h1>Electrical &amp; Automation <span>Engineering.</span></h1>
+            <p class="hero-lead">Wassim Farhat · Electrical and Automation Engineering student based in Sousse, Tunisia.</p>
+            <p class="hero-copy">Experience across industrial PLC/SCADA automation, embedded monitoring, electrical installations, solar PV systems and production-process analysis, with an emphasis on safe implementation, documentation and practical problem-solving.</p>
+            <div class="actions">
+              <a class="btn btn-primary" href="#projects">Explore selected work <span aria-hidden="true">↗</span></a>
+              <a class="btn" href="Wassim_Farhat_CV.pdf" download>Download CV <span aria-hidden="true">↓</span></a>
+              <a class="btn" href="mailto:wassim.farhat@polytechnicien.tn">Contact me</a>
+            </div>
+          </div>
+          <aside class="profile-card" aria-label="Professional profile">
+            <div class="profile-top">
+              <div class="avatar">WF</div>
+              <div><strong>Wassim Farhat</strong><span>Electrical & Automation Engineering</span></div>
+            </div>
+            <span class="status">Open to relevant opportunities</span>
+            <h3>Core technical areas</h3>
+            <div class="skill-pills">
+              <span class="pill">Siemens S7-1500</span><span class="pill">TIA Portal</span><span class="pill">WinCC</span>
+              <span class="pill">ESP32 / IoT</span><span class="pill">Electrical systems</span><span class="pill">PCB design</span>
+              <span class="pill">MATLAB / Simulink</span><span class="pill">AutoCAD</span>
+            </div>
+            <h3>Based in</h3>
+            <p style="margin:0;color:var(--muted);font-size:13px">Sousse, Tunisia · Available for internships and technical opportunities</p>
+          </aside>
+        </div>
+        <div class="quick-info" aria-label="Profile highlights">
+          <div><strong>4</strong><span>Internship experiences</span></div>
+          <div><strong>PLC / IoT</strong><span>Automation and embedded work</span></div>
+          <div><strong>Hands-on</strong><span>Design, testing and documentation</span></div>
+        </div>
+      </div>
+    </header>
+
+    <section id="experience">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">Professional background</div><h2>Experience</h2></div><p>Practical work across process improvement, electrical installation, embedded monitoring and industrial automation.</p></div>
+        <div class="timeline">
+          <article class="experience">
+            <div class="date">Aug – Sep 2026<span>Sousse, Tunisia</span></div>
+            <div><h3>Process Engineering Intern</h3><div class="org">DRÄXLMAIER · Wiring harness production</div>
+              <ul>
+                <li>Analyzed MES production data and scrap from three Komax 633 cut-and-crimp machines (588, 590 and 596); the studied scrap split was 25%, 37.5% and 37.5%.</li>
+                <li>Applied QQOQCP, Pareto, Ishikawa and AMDEC methods. Crimp-feed fault (CFA) was the most frequent logged event, appearing in 23 of 47 entries.</li>
+                <li>Prioritized worn blades, press-tool settings and cable-feed parameters, then proposed preventive-maintenance, pre-start checks and operator-training actions.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience">
+            <div class="date">Jul – Aug 2026<span>Sousse, Tunisia</span></div>
+            <div><h3>Electrical & Solar PV Installation Intern</h3><div class="org">Ouerdani Electricity Corporation</div>
+              <ul>
+                <li>Worked on residential installations to NF C 15-100, including distribution-board wiring and labelling, lighting and socket circuits, and a hand-drawn single-line diagram.</li>
+                <li>Calculated air-conditioning circuit breaker sizing from load requirements.</li>
+                <li>Contributed to a 14-module grid-connected PV installation, including mounting, basic DC/AC connections, earthing work and commissioning activities.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience">
+            <div class="date">Jun – Jul 2025<span>Sousse, Tunisia</span></div>
+            <div><h3>IoT Technician Intern</h3><div class="org">Sitex · Textile industry</div>
+              <ul>
+                <li>Designed an ESP32-based electronic controller to monitor and protect a generator set, replacing manual supervision.</li>
+                <li>Integrated six measurements: temperature, oil pressure, fuel level, battery voltage, AC current and three-phase voltage.</li>
+                <li>Connected measurements and alarms to a cloud database and phone application for remote monitoring and control.</li>
+              </ul>
+            </div>
+          </article>
+          <article class="experience">
+            <div class="date">Jan – May 2024<span>Sousse, Tunisia</span></div>
+            <div><h3>Electrical Automation Technician Intern · Final-year project</h3><div class="org">Sitex</div>
+              <ul>
+                <li>Analyzed I/O across seven machines and migrated a legacy relay-based system to a Siemens S7-1500 (CPU 1512C-1 PN) using TIA Portal V17.</li>
+                <li>Implemented GRAFCET-based automatic, manual and safety modes in structured PLC blocks, including analog scaling and PID control.</li>
+                <li>Developed a WinCC HMI for machine-state monitoring and alarms, and prepared control-cabinet wiring diagrams.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">Selected work</div><h2>Projects</h2></div><p>Technical projects that demonstrate system integration, design and practical engineering skills.</p></div>
+        <div class="grid">
+          <article class="project">
+            <div class="project-head"><div><div class="project-type">Industrial automation</div><h3>PLC & SCADA modernization</h3></div><div class="project-icon" aria-hidden="true">⌘</div></div>
+            <p>Migration of a legacy relay system to a Siemens S7-1500 PLC, with GRAFCET modes, structured program blocks, analog scaling, PID control and WinCC machine-state/alarm supervision.</p>
+            <div class="skill-pills"><span class="pill">S7-1500</span><span class="pill">TIA Portal V17</span><span class="pill">WinCC</span><span class="pill">GRAFCET</span><span class="pill">PID</span></div>
+            <div class="project-links" data-resources="plc"></div>
+          </article>
+          <article class="project">
+            <div class="project-head"><div><div class="project-type">Embedded systems · IoT</div><h3>ESP32 generator monitoring</h3></div><div class="project-icon" aria-hidden="true">⌁</div></div>
+            <p>ESP32-based generator monitoring and protection with six sensor measurements, alarm thresholds, relay outputs and cloud-connected remote monitoring through a phone application.</p>
+            <div class="skill-pills"><span class="pill">ESP32</span><span class="pill">Sensors</span><span class="pill">IoT</span><span class="pill">Cloud database</span></div>
+            <div class="project-links" data-resources="esp32"></div>
+          </article>
+          <article class="project">
+            <div class="project-head"><div><div class="project-type">Electrical engineering</div><h3>Grid-connected solar PV installation</h3></div><div class="project-icon" aria-hidden="true">☼</div></div>
+            <p>Practical exposure to a 14-module grid-tied PV installation, including mounting, basic DC/AC connections, earthing work and commissioning within the STEG/ANME framework.</p>
+            <div class="skill-pills"><span class="pill">Solar PV</span><span class="pill">DC/AC</span><span class="pill">Earthing</span><span class="pill">Electrical safety</span></div>
+            <div class="project-links" data-resources="solar"></div>
+          </article>
+          <article class="project">
+            <div class="project-head"><div><div class="project-type">Process improvement</div><h3>Industrial scrap analysis</h3></div><div class="project-icon" aria-hidden="true">↗</div></div>
+            <p>Analysis of scrap contribution and MES events across three cut-and-crimp machines, using Pareto, Ishikawa, QQOQCP and AMDEC to prioritize possible root causes and corrective actions.</p>
+            <div class="skill-pills"><span class="pill">MES</span><span class="pill">Pareto</span><span class="pill">Ishikawa</span><span class="pill">AMDEC</span></div>
+            <div class="project-links" data-resources="scrap"></div>
+          </article>
+          <article class="project">
+            <div class="project-head"><div><div class="project-type">Electronic design</div><h3>PCB design with Altium Designer</h3></div><div class="project-icon" aria-hidden="true">▦</div></div>
+            <p>Created component symbols, footprints and 3D STEP models from datasheets, organized a multi-sheet schematic, routed a PCB manually and exported fabrication layers.</p>
+            <div class="skill-pills"><span class="pill">Altium Designer</span><span class="pill">Schematic capture</span><span class="pill">PCB layout</span></div>
+            <div class="project-links" data-resources="pcb"></div>
+          </article>
+          <article class="project">
+            <div class="project-head"><div><div class="project-type">Microcontrollers</div><h3>Smart parking with biometric access</h3></div><div class="project-icon" aria-hidden="true">⌖</div></div>
+            <p>Arduino Uno access-control prototype with fingerprint and PIN verification, servo-operated barriers, PIR-based exit detection and an I²C LCD for available-space information.</p>
+            <div class="skill-pills"><span class="pill">Arduino Uno</span><span class="pill">C++</span><span class="pill">Fingerprint sensor</span><span class="pill">Servo</span></div>
+            <div class="project-links" data-resources="parking"></div>
+          </article>
+          <article class="project">
+            <div class="project-head"><div><div class="project-type">Community education</div><h3>Mind Makers Arduino workshops</h3></div><div class="project-icon" aria-hidden="true">✳</div></div>
+            <p>Co-organized hands-on electronics and robotics workshops for 22 students aged 12–15 with Future Vision, ending with an Arduino car-racing activity. 82% of participants reported high satisfaction.</p>
+            <div class="skill-pills"><span class="pill">Arduino</span><span class="pill">STEM education</span><span class="pill">Teamwork</span></div>
+            <div class="project-links" data-resources="workshop"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="resources" class="resources">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">Supporting evidence</div><h2>Reports & demonstrations</h2></div><p>Download technical documents or watch demonstrations of the work. Only resources with configured links appear here.</p></div>
+        <div class="resource-grid" id="resource-grid"></div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">Technical toolkit</div><h2>Skills</h2></div><p>Tools and methods used in academic projects and internship work.</p></div>
+        <div class="skills-grid">
+          <div class="skill-box"><h3>Industrial automation</h3><p>Siemens S7-1500, TIA Portal V17, WinCC, GRAFCET, PID control, I/O analysis and sizing.</p></div>
+          <div class="skill-box"><h3>Embedded systems & IoT</h3><p>ESP32, Arduino, STM32, C++, sensors, relays, MQTT and cloud-connected monitoring.</p></div>
+          <div class="skill-box"><h3>Design & simulation</h3><p>Altium Designer, AutoCAD, MATLAB, Simulink, Proteus and VHDL.</p></div>
+          <div class="skill-box"><h3>Electrical installations</h3><p>NF C 15-100, circuit protection, earthing, residential wiring and grid-connected PV.</p></div>
+          <div class="skill-box"><h3>Process improvement</h3><p>MES data analysis, Pareto, Ishikawa, QQOQCP, AMDEC and preventive maintenance.</p></div>
+          <div class="skill-box"><h3>Technical communication</h3><p>Electrical diagrams, technical reports, troubleshooting and cross-functional collaboration.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education">
+      <div class="container">
+        <div class="section-head"><div><div class="eyebrow">Academic background</div><h2>Education & credentials</h2></div></div>
+        <div class="education-grid">
+          <div class="info-panel"><h3>Education</h3>
+            <div class="info-item"><strong>Electrical and Automation Engineering</strong><span>Polytechnique Sousse · 2024–present</span></div>
+            <div class="info-item"><strong>Bachelor’s in Electrical and Automation</strong><span>Higher School of Science and Technology of Hammam Sousse · 2021–2024</span></div>
+          </div>
+          <div class="info-panel"><h3>Certifications & languages</h3>
+            <div class="info-item"><strong>Certifications</strong><span>MATLAB, Simulink and Simscape · IT Specialist: Artificial Intelligence · English B2</span></div>
+            <div class="info-item"><strong>Languages</strong><span>Arabic — native · English — advanced · French — intermediate · German — beginner</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-panel">
+          <div><h2>Let's talk engineering.</h2><p>Open to internships, research placements and relevant engineering opportunities.</p><p style="margin-top:9px"><a href="mailto:wassim.farhat@polytechnicien.tn" style="color:#fff;text-decoration:underline;text-underline-offset:4px">wassim.farhat@polytechnicien.tn</a> · +216 92 983 401</p></div>
+          <div class="actions" style="margin:0"><a class="btn" href="Wassim_Farhat_CV.pdf" download>Download CV ↓</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer><div class="container footer-inner"><span>© <span id="year"></span> Wassim Farhat</span><span>Electrical & Automation Engineering · Sousse, Tunisia</span></div></footer>
+
+  <script>
+    /*
+      Add real report/video links below after uploading files to GitHub.
+      Local PDFs: use paths such as "reports/plc-scada-report.pdf".
+      Local videos: use paths such as "assets/videos/plc-demo.mp4".
+      YouTube: paste the normal watch URL; it will be embedded automatically.
+      Google Drive: use a share link with viewer access enabled.
+      Leave url empty until the file or public URL is ready. No fake links are shown.
+    */
+    const portfolioResources = [
+      // Example format:
+      // { project: "plc", title: "PLC & SCADA technical report", type: "pdf", url: "reports/plc-scada-report.pdf", description: "Project documentation" },
+      // { project: "plc", title: "PLC sequence demonstration", type: "video", url: "https://www.youtube.com/watch?v=YOUR_VIDEO_ID", description: "System demonstration" },
+      // Valid project keys: plc, esp32, solar, scrap, pcb, parking, workshop
+    ];
+
+    const projectLabels = {
+      plc: "PLC & SCADA modernization", esp32: "ESP32 generator monitoring",
+      solar: "Grid-connected solar PV installation", scrap: "Industrial scrap analysis",
+      pcb: "PCB design with Altium Designer", parking: "Smart parking with biometric access",
+      workshop: "Mind Makers Arduino workshops"
+    };
+
+    const iconFor = type => type === "pdf" ? "PDF" : type === "video" ? "▶" : "↗";
+    const labelFor = type => type === "pdf" ? "Download report" : type === "video" ? "Watch demonstration" : "Open resource";
+
+    function videoEmbed(url) {
+      const yt = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/)([A-Za-z0-9_-]{6,})/);
+      if (yt) return "https://www.youtube-nocookie.com/embed/" + yt[1];
+      const drive = url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
+      if (drive) return "https://drive.google.com/file/d/" + drive[1] + "/preview";
+      return null;
+    }
+
+    function addResourceLink(container, item) {
+      const a = document.createElement("a");
+      a.className = "small-btn";
+      a.href = item.url;
+      a.textContent = iconFor(item.type) + " " + labelFor(item.type);
+      if (/^https?:\/\//i.test(item.url)) {
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+      }
+      if (item.type === "pdf" && !/^https?:\/\//i.test(item.url)) a.setAttribute("download", "");
+      container.appendChild(a);
+    }
+
+    const validResources = portfolioResources.filter(item => item && item.project && item.title && item.type && item.url);
+    validResources.forEach(item => {
+      const target = document.querySelector('[data-resources="' + item.project + '"]');
+      if (target) addResourceLink(target, item);
+
+      const card = document.createElement("article");
+      card.className = "resource";
+      const ico = document.createElement("div");
+      ico.className = "project-icon";
+      ico.setAttribute("aria-hidden", "true");
+      ico.textContent = iconFor(item.type);
+      const body = document.createElement("div");
+      const h = document.createElement("h3");
+      h.textContent = item.title;
+      const p = document.createElement("p");
+      p.textContent = (projectLabels[item.project] || "Project resource") + (item.description ? " · " + item.description : "");
+      body.append(h, p);
+      addResourceLink(body, item);
+      card.append(ico, body);
+      document.getElementById("resource-grid").appendChild(card);
+    });
+    if (validResources.length) document.getElementById("resources").classList.add("has-items");
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
